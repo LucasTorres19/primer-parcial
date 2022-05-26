@@ -108,3 +108,78 @@ void modificarVivienda(int pos,vivienda* list, int len,char calle[],int cantidad
 			}
 
 }
+
+void OrdenarViviendasPorCalle(vivienda* list , int len){
+
+	int j , i;
+
+	vivienda aux;
+
+
+	for(i = 0; i < len; i++){
+		for(j = i + 1 ; j < len ; j++){
+
+			if(list[i].isEmpty == 0){
+
+				if(strcmp(list[i].calle,list[j].calle) > 0){
+
+					aux = list[j];
+					list[j] = list[i];
+					list[i] = aux;
+
+				}
+
+				if(strcmp(list[i].calle,list[j].calle) == 0){
+					if(list[i].cantidadPersonas > list[j].cantidadPersonas){
+						aux = list[j];
+						list[j] = list[i];
+						list[i] = aux;
+					}
+				}
+
+			}
+
+		}
+	}
+
+}
+
+void printVivienda(vivienda* list, int length){
+
+	for(int i = 0; i < length ; i++){
+
+		if(list[i].isEmpty == 0){
+
+			printf("%d",list[i].id);
+			printf(" ");
+			printf("%s",list[i].calle);
+			printf(" ");
+			printf("%d",list[i].cantidadHabitaciones);
+			printf(" ");
+			printf("%d",list[i].cantidadPersonas);
+			printf(" ");
+			printf("%d",list[i].legajoCencista);
+			printf(" ");
+
+			switch(list[i].tipoVivienda){
+
+			case 1:
+				printf("Casa");
+				break;
+			case 2:
+				printf("Departamento");
+				break;
+			case 3:
+				printf("Casilla");
+				break;
+			case 4:
+				printf("Rancho");
+				break;
+			}
+
+			printf("\n");
+
+		}
+	}
+}
+

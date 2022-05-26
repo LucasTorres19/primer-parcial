@@ -152,7 +152,7 @@ int main(void) {
 
 							if(validarId != -1){
 
-								void removeVivienda(viviendas, viviendasLargo,validarId);
+								removeVivienda(viviendas,largoViviendas,id);
 
 							}else{
 								printf("Id ingresada no encontrada.\n");
@@ -161,7 +161,8 @@ int main(void) {
 							break;
 						case 4: //listar viviendas.
 
-
+							OrdenarViviendasPorCalle(viviendas , largoViviendas);
+							printVivienda(viviendas, largoViviendas);
 							break;
 						case 5://lista censistas.
 							mostrarCencistas(censistas , LargoCensistas);
