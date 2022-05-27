@@ -96,10 +96,12 @@ int main(void) {
 								"3.Borrar vivienda.\n"
 								"4.Listar vivienda.\n"
 								"5.Lista Censistas.\n"
-								"6.Salir.\n"
+								"6.listar censistas con datos de las viviendas.\n"
+								"7.Censista Con mayor cantidad de censos.\n"
+								"8.Salir.\n"
 						);
 
-						getInt(&opcionElejida,"ingrese una opcion:","Error. ingrese nuevamente la opcion.\n",1,6);
+						getInt(&opcionElejida,"ingrese una opcion:","Error. ingrese nuevamente la opcion.\n",1,8);
 
 						//menu.
 						switch(opcionElejida){
@@ -160,14 +162,20 @@ int main(void) {
 
 							break;
 						case 4: //listar viviendas.
-
 							OrdenarViviendasPorCalle(viviendas , largoViviendas);
 							printVivienda(viviendas, largoViviendas);
 							break;
 						case 5://lista censistas.
 							mostrarCencistas(censistas , LargoCensistas);
 							break;
-						case 6://Salir de programa.
+
+						case 6://listar cencistas con sus respectivas viviendas.
+							mostrarCencistasConViviendas(censistas,LargoCensistas,viviendas,largoViviendas);
+							break;
+						case 7://mostrar mayor censista.
+							mostrarCencistaConMayorCantidad(censistas,LargoCensistas,viviendas,largoViviendas);
+							break;
+						case 8://Salir de programa.
 							menu = 1;
 							break;
 
